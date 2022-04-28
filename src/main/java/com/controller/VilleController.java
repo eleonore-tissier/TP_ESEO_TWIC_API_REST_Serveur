@@ -31,7 +31,7 @@ public class VilleController {
 		// TODO : mon code vers la BDD (visualiser la ville à partir du codePostal entré en paramètres)
 		DaoFactory connexionBdd = new DaoFactory();
 		VilleFranceImplementation villeFranceImpl = new VilleFranceImplementation(connexionBdd);
-		List<Ville> ret = new ArrayList<Ville>();
+		List<Ville> ret = new ArrayList<>();
 		
 		if(nom == null) {
 			ret = villeFranceImpl.afficherVilles();
@@ -48,13 +48,7 @@ public class VilleController {
 	@RequestMapping(value="/ville", method=RequestMethod.POST)
 	@ResponseBody
 	public void post(@RequestBody String request) throws DaoException {
-		System.out.println("post");
-		System.out.println(request);
-		System.out.println("-------------------------------------------------");
 		String[] result = request.split("[{}\":,]");
-//		for(int i=0 ; i<result.length ; i++) {
-//			System.out.println("result[" + i + "] = " + result[i]);
-//		}
 		
 		DaoFactory connexionBdd = new DaoFactory();
 		VilleFranceImplementation villeFranceImpl = new VilleFranceImplementation(connexionBdd);
@@ -64,10 +58,6 @@ public class VilleController {
 	@RequestMapping(value = "/ville", method = RequestMethod.PUT)
 	@ResponseBody
 	public void put(@RequestBody String request) throws JsonMappingException, JsonProcessingException, SQLException, DaoException {
-		System.out.println("put");
-		System.out.println(request);
-		System.out.println("-------------------------------------------------");
-		
 		@SuppressWarnings("unchecked")
 		Map<String, String> result = new ObjectMapper().readValue(request, HashMap.class);
 		
@@ -79,14 +69,7 @@ public class VilleController {
 	@RequestMapping(value="/ville", method=RequestMethod.DELETE)
 	@ResponseBody
 	public void delete(@RequestBody String request) throws DaoException {
-		System.out.println("delete");
-		System.out.println(request);
-		System.out.println("-------------------------------------------------");
 		String[] result = request.split("[\"{}:]");
-		for(String item : result) {
-			System.out.println(item);
-		}
-		System.out.println(result[5]);
 		
 		DaoFactory connexionBdd = new DaoFactory();
 		VilleFranceImplementation villeFranceImpl = new VilleFranceImplementation(connexionBdd);
