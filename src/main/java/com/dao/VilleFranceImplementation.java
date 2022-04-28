@@ -43,13 +43,6 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 		} catch (SQLException e) {
 			e.printStackTrace();
             throw new DaoException("Impossible de communiquer avec la base de données");
-		} finally {
-			try {
-				if (connexion != null) {
-					connexion.close();
-				}
-			} catch (SQLException e) {
-			}
 		}
 		return listVille;
 	}
@@ -80,46 +73,32 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 		} catch (SQLException e) {
 			e.printStackTrace();
             throw new DaoException("Impossible de communiquer avec la base de données");
-		} finally {
-			try {
-				if (connexion != null) {
-					connexion.close();
-				}
-			} catch (SQLException e) {
-			}
 		}
 		return listVille;
 	}
 
 	@Override
-	public void ajouterVille(String Code_commune_INSEE, String Nom_commune, String Code_postal,
-			String Libelle_acheminement, String Ligne_5, String Latitude, String Longitude) throws DaoException {
+	public void ajouterVille(String codeCommuneInsee, String nomCommune, String codePostal, String libelleAcheminement, 
+			String ligne5, String latitude,	String longitude) throws DaoException {
 		Connection connexion = null;
 
 		try {
 			connexion = connexionBdd.getConnection();
 			try(PreparedStatement preparedStatement = connexion.prepareStatement(
 					"INSERT INTO ville_france(Code_commune_INSEE,Nom_commune,Code_postal,Libelle_acheminement,Ligne_5,Latitude,Longitude) VALUES(?, ?, ?, ?, ?, ?, ?);")){
-				preparedStatement.setString(1, Code_commune_INSEE);
-				preparedStatement.setString(2, Nom_commune);
-				preparedStatement.setString(3, Code_postal);
-				preparedStatement.setString(4, Libelle_acheminement);
-				preparedStatement.setString(5, Ligne_5);
-				preparedStatement.setString(6, Latitude);
-				preparedStatement.setString(7, Longitude);
+				preparedStatement.setString(1, codeCommuneInsee);
+				preparedStatement.setString(2, nomCommune);
+				preparedStatement.setString(3, codePostal);
+				preparedStatement.setString(4, libelleAcheminement);
+				preparedStatement.setString(5, ligne5);
+				preparedStatement.setString(6, latitude);
+				preparedStatement.setString(7, longitude);
 
 				preparedStatement.executeUpdate();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
             throw new DaoException("Impossible de communiquer avec la base de données");
-		} finally {
-			try {
-				if (connexion != null) {
-					connexion.close();
-				}
-			} catch (SQLException e) {
-			}
 		}
 	}
 
@@ -148,38 +127,24 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 		} catch (SQLException e) {
 			e.printStackTrace();
             throw new DaoException("Impossible de communiquer avec la base de données");
-		} finally {
-			try {
-				if (connexion != null) {
-					connexion.close();
-				}
-			} catch (SQLException e) {
-			}
 		}
 		
 	}
 	
 	@Override
-	public void supprimerVille(String Code_commune_INSEE) throws DaoException {
+	public void supprimerVille(String codeCommuneInsee) throws DaoException {
 		Connection connexion = null;
 		
 		try {
 			connexion = connexionBdd.getConnection();
 			
 			try(PreparedStatement preparedStatement = connexion.prepareStatement("DELETE FROM ville_france WHERE Code_commune_INSEE=?;")){
-				preparedStatement.setString(1, Code_commune_INSEE);
+				preparedStatement.setString(1, codeCommuneInsee);
 				preparedStatement.executeUpdate();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
             throw new DaoException("Impossible de communiquer avec la base de données");
-		} finally {
-			try {
-				if (connexion != null) {
-					connexion.close();
-				}
-			} catch (SQLException e) {
-			}
 		}
 	}
 }

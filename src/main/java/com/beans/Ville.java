@@ -1,83 +1,83 @@
 package com.beans;
 
 public class Ville {
-	private String Code_commune_INSEE;
-	private String Nom_commune;
-	private String Code_postal;
-	private String Libelle_acheminement;
-	private String Ligne_5;
-	private String Latitude;
-	private String Longitude;
+	private String codeCommuneInsee;
+	private String nomCommune;
+	private String codePostal;
+	private String libelleAcheminement;
+	private String ligne5;
+	private String latitude;
+	private String longitude;
 	
 	public Ville() {
 		super();
 	}
 	
-	public Ville(String Code_commune_INSEE, String Nom_commune, String Code_postal, String Libelle_acheminement,
-			String Ligne_5, String Latitude, String Longitude) {
+	public Ville(String codeCommuneInsee, String nomCommune, String codePostal, String libelleAcheminement,
+			String ligne5, String latitude, String longitude) {
 		super();
-		this.Code_commune_INSEE = Code_commune_INSEE;
-		this.Nom_commune = Nom_commune;
-		this.Code_postal = Code_postal;
-		this.Libelle_acheminement = Libelle_acheminement;
-		this.Ligne_5 = Ligne_5;
-		this.Latitude = Latitude;
-		this.Longitude = Longitude;
+		this.codeCommuneInsee = codeCommuneInsee;
+		this.nomCommune = nomCommune;
+		this.codePostal = codePostal;
+		this.libelleAcheminement = libelleAcheminement;
+		this.ligne5 = ligne5;
+		this.latitude = latitude;
+		this.longitude = longitude;
 	}
 
 	public String getCode_commune_INSEE() {
-		return this.Code_commune_INSEE;
+		return this.codeCommuneInsee;
 	}
 
-	public void setCode_commune_INSEE(String code_commune_INSEE) {
-		this.Code_commune_INSEE = code_commune_INSEE;
+	public void setCode_commune_INSEE(String codeCommuneInsee) {
+		this.codeCommuneInsee = codeCommuneInsee;
 	}
 
 	public String getNom_commune() {
-		return this.Nom_commune;
+		return this.nomCommune;
 	}
 
-	public void setNom_commune(String nom_commune) {
-		this.Nom_commune = nom_commune;
+	public void setNom_commune(String nomCommune) {
+		this.nomCommune = nomCommune;
 	}
 
 	public String getCode_postal() {
-		return this.Code_postal;
+		return this.codePostal;
 	}
 
-	public void setCode_postal(String code_postal) {
-		this.Code_postal = code_postal;
+	public void setCode_postal(String codePostal) {
+		this.codePostal = codePostal;
 	}
 
 	public String getLibelle_acheminement() {
-		return this.Libelle_acheminement;
+		return this.libelleAcheminement;
 	}
 
-	public void setLibelle_acheminement(String libelle_acheminement) {
-		this.Libelle_acheminement = libelle_acheminement;
+	public void setLibelle_acheminement(String libelleAcheminement) {
+		this.libelleAcheminement = libelleAcheminement;
 	}
 
 	public String getLigne_5() {
-		return this.Ligne_5;
+		return this.ligne5;
 	}
 
-	public void setLigne_5(String ligne_5) {
-		this.Ligne_5 = ligne_5;
+	public void setLigne_5(String ligne5) {
+		this.ligne5 = ligne5;
 	}
 
 	public String getLatitude() {
-		return this.Latitude;
+		return this.latitude;
 	}
 
 	public void setLatitude(String latitude) {
-		this.Latitude = latitude;
+		this.latitude = latitude;
 	}
 
 	public String getLongitude() {
-		return this.Longitude;
+		return this.longitude;
 	}
 
 	public void setLongitude(String longitude) {
-		this.Longitude = longitude;
+		this.longitude = longitude;
 	}
 }

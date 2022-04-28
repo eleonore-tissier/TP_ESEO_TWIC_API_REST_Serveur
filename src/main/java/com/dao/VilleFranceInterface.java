@@ -9,13 +9,13 @@ import com.beans.Ville;
 public interface VilleFranceInterface {
 	List<Ville> afficherVille(String codePostal) throws DaoException;
 	List<Ville> afficherVilles() throws DaoException;
-	void ajouterVille(String Code_commune_INSEE,
-			String Nom_commune, 
-			String Code_postal, 
-			String Libelle_acheminement, 
-			String Ligne_5, 
-			String Latitude, 
-			String Longitude) throws DaoException;
+	void ajouterVille(String codeCommuneInsee,
+			String nomCommune, 
+			String codePostal, 
+			String libelleAcheminement, 
+			String ligne5, 
+			String latitude, 
+			String longitude) throws DaoException;
 	void modifierVille(Map<String, String> newVille) throws SQLException, DaoException;
-	void supprimerVille(String Code_commune_INSEE) throws DaoException;
+	void supprimerVille(String codeCommuneInsee) throws DaoException;
 }
