@@ -17,4 +17,8 @@ public class DaoFactory {
 		public static Connection getConnection() throws SQLException {
 	        return DriverManager.getConnection("jdbc:mysql://localhost:3306/ville_france", "root", "network");
 		}
+		
+		public VilleFranceImplementation getVilleFranceDao() {
+			return new VilleFranceImplementation(this);
+		}
 }
