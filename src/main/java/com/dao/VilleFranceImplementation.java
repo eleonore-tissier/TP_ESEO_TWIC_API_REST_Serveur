@@ -23,13 +23,8 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 		Connection connexion = null;
 		Statement statement = null;
 		ResultSet resultat = null;
-//		String nom = "{\n";
-//		StringBuilder result;
-		List<Ville> listVille = new ArrayList<Ville>();
-//		Ville ville = new Ville();
-
 		
-//		String[] request = nom.split(",");
+		List<Ville> listVille = new ArrayList<Ville>();
 		
 		try {
 			connexion = connexionBdd.getConnection();
@@ -46,26 +41,6 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 						resultat.getString("Longitude"));
 				listVille.add(ville);
 			}
-			
-//			for(String item : request) {
-//				resultat = statement.executeQuery("SELECT * FROM ville_france WHERE Nom_commune = " + item + ";");
-//				while (resultat.next()) {
-//					Ville ville = new Ville(resultat.getString("Code_commune_INSEE"),
-//							resultat.getString("Nom_commune"),
-//							resultat.getString("Code_postal"),
-//							resultat.getString("Libelle_acheminement"),
-//							resultat.getString("Ligne_5"),
-//							resultat.getString("Latitude"),
-//							resultat.getString("Longitude"));
-//					listVille.add(ville);
-////					nom += "	\"Nom_commune\": \"" + resultat.getString("Nom_commune") + "\",\n";
-//				}
-//			}
-//			nom += "}";
-//			int index = nom.lastIndexOf(",");
-//			result = new StringBuilder(nom);
-//			result = result.deleteCharAt(index);
-//			System.out.println(result);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,8 +62,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 		Connection connexion = null;
 		Statement statement = null;
 		ResultSet resultat = null;
-//		String villes = "{\n";
-//		StringBuilder result;
+		
 		List<Ville> listVille = new ArrayList<Ville>();
 
 		try {
@@ -105,14 +79,8 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 						resultat.getString("Latitude"),
 						resultat.getString("Longitude"));
 				listVille.add(ville);
-//				villes += "	\"Nom_commune\": \"" + resultat.getString("Nom_commune") + "\",\n";
-
+				
 			}
-//			villes += "}";
-//			int index = villes.lastIndexOf(",");
-//			result = new StringBuilder(villes);
-//			result = result.deleteCharAt(index);
-//			System.out.println(result);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
