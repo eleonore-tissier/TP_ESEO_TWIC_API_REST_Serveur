@@ -25,43 +25,43 @@ public class Ville {
 		this.longitude = longitude;
 	}
 
-	public String getCode_commune_INSEE() {
+	public String getCodeCommuneInsee() {
 		return this.codeCommuneInsee;
 	}
 
-	public void setCode_commune_INSEE(String codeCommuneInsee) {
+	public void setCodeCommuneInsee(String codeCommuneInsee) {
 		this.codeCommuneInsee = codeCommuneInsee;
 	}
 
-	public String getNom_commune() {
+	public String getNomCommune() {
 		return this.nomCommune;
 	}
 
-	public void setNom_commune(String nomCommune) {
+	public void setNomCommune(String nomCommune) {
 		this.nomCommune = nomCommune;
 	}
 
-	public String getCode_postal() {
+	public String getCodePostal() {
 		return this.codePostal;
 	}
 
-	public void setCode_postal(String codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
-	public String getLibelle_acheminement() {
+	public String getLibelleAcheminement() {
 		return this.libelleAcheminement;
 	}
 
-	public void setLibelle_acheminement(String libelleAcheminement) {
+	public void setLibelleAcheminement(String libelleAcheminement) {
 		this.libelleAcheminement = libelleAcheminement;
 	}
 
-	public String getLigne_5() {
+	public String getLigne5() {
 		return this.ligne5;
 	}
 
-	public void setLigne_5(String ligne5) {
+	public void setLigne5(String ligne5) {
 		this.ligne5 = ligne5;
 	}
 
