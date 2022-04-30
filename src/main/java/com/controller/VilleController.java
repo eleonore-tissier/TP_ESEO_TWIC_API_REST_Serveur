@@ -27,8 +27,6 @@ public class VilleController {
 	// fonction pour récupérer le contenu de la BDD
 	@RequestMapping(value="/ville", method=RequestMethod.GET)
 	public List<Ville> get(@RequestParam(required  = false, value="nom") String nom) throws DaoException {
-		System.out.println("get");
-		// TODO : mon code vers la BDD (visualiser la ville à partir du codePostal entré en paramètres)
 		DaoFactory connexionBdd = new DaoFactory();
 		VilleFranceImplementation villeFranceImpl = new VilleFranceImplementation(connexionBdd);
 		List<Ville> ret = new ArrayList<>();
@@ -43,16 +41,15 @@ public class VilleController {
 		return ret;
 	}
 	
-	// TODO : 
 	// fonction pour enregistrer un element dans la BDD
 	@RequestMapping(value="/ville", method=RequestMethod.POST)
 	@ResponseBody
 	public void post(@RequestBody String request) throws DaoException {
 		String[] result = request.split("[{}\":,]");
-		
+	
 		DaoFactory connexionBdd = new DaoFactory();
 		VilleFranceImplementation villeFranceImpl = new VilleFranceImplementation(connexionBdd);
-		villeFranceImpl.ajouterVille(result[5], result[11], result[17], result[23], result[29], result[34], result[38]);
+		villeFranceImpl.ajouterVille(result[5], result[11], result[17], result[23], result[29], result[35], result[41]);
 	}
 	
 	@RequestMapping(value = "/ville", method = RequestMethod.PUT)

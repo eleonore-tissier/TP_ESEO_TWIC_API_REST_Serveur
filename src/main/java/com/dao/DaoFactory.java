@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DaoFactory {
+		private static String user = "root";
+		private static String password = "network";
 	
 		public DaoFactory() {
 			try {
@@ -15,7 +17,7 @@ public class DaoFactory {
 		}
 		
 		public static Connection getConnection() throws SQLException {
-	        return DriverManager.getConnection("jdbc:mysql://localhost:3306/ville_france", "root", "network");
+	        return DriverManager.getConnection("jdbc:mysql://localhost:3306/ville_france", user , password);
 		}
 		
 		public VilleFranceImplementation getVilleFranceDao() {

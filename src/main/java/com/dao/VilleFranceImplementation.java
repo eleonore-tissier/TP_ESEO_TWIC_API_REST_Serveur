@@ -8,10 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.*;
 
 import com.beans.Ville;
 
 public class VilleFranceImplementation implements VilleFranceInterface {
+	private static Logger logger = Logger.getLogger(VilleFranceImplementation.class.getName());
+	
 	private DaoFactory connexionBdd;
 	
 	public VilleFranceImplementation(DaoFactory connexionBdd) {
@@ -41,7 +44,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 				}
 			}			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.log(Level.WARNING, e.getMessage());
             throw new DaoException("Impossible de communiquer avec la base de données");
 		}
 		return listVille;
@@ -71,7 +74,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 				}
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.log(Level.WARNING, e.getMessage());
             throw new DaoException("Impossible de communiquer avec la base de données");
 		}
 		return listVille;
@@ -97,7 +100,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 				preparedStatement.executeUpdate();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.log(Level.WARNING, e.getMessage());
             throw new DaoException("Impossible de communiquer avec la base de données");
 		}
 	}
@@ -125,7 +128,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 				preparedStatement.executeUpdate();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.log(Level.WARNING, e.getMessage());
             throw new DaoException("Impossible de communiquer avec la base de données");
 		}
 		
@@ -143,7 +146,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 				preparedStatement.executeUpdate();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.log(Level.WARNING, e.getMessage());
             throw new DaoException("Impossible de communiquer avec la base de données");
 		}
 	}
