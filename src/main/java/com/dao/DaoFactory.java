@@ -9,9 +9,6 @@ import java.util.logging.Logger;
 public class DaoFactory {
 		private static Logger logger = Logger.getLogger(DaoFactory.class.getName());
 	
-		private static String user = "root";
-		private static String pswd = "network";
-	
 		public DaoFactory() {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");

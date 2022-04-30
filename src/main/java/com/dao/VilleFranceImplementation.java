@@ -16,6 +16,9 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 	private static Logger logger = Logger.getLogger(VilleFranceImplementation.class.getName());
 	
 	private DaoFactory connexionBdd;
+	private static final String DAOEXCEPTION = "Impossible de communiquer avec la base de données";
+	
+	private static final String CODEINSEE = "Code_commune_INSEE";
 	
 	public VilleFranceImplementation(DaoFactory connexionBdd) {
 		this.connexionBdd = connexionBdd;
@@ -32,7 +35,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			try(Statement statement = connexion.createStatement()){
 				try(ResultSet resultat = statement.executeQuery("SELECT * FROM ville_france WHERE Nom_commune = " + nom + ";")){
 					while (resultat.next()) {
-						Ville ville = new Ville(resultat.getString("Code_commune_INSEE"),
+						Ville ville = new Ville(resultat.getString(CODEINSEE),
 								resultat.getString("Nom_commune"),
 								resultat.getString("Code_postal"),
 								resultat.getString("Libelle_acheminement"),
@@ -45,7 +48,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			}			
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
-            throw new DaoException("Impossible de communiquer avec la base de données");
+            throw new DaoException(DAOEXCEPTION);
 		}
 		return listVille;
 	}
@@ -61,7 +64,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			try(Statement statement = connexion.createStatement()){
 				try(ResultSet resultat = statement.executeQuery("SELECT * FROM ville_france;")){
 					while (resultat.next()) {
-						Ville ville = new Ville(resultat.getString("Code_commune_INSEE"),
+						Ville ville = new Ville(resultat.getString(CODEINSEE),
 								resultat.getString("Nom_commune"),
 								resultat.getString("Code_postal"),
 								resultat.getString("Libelle_acheminement"),
@@ -75,7 +78,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			}
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
-            throw new DaoException("Impossible de communiquer avec la base de données");
+            throw new DaoException(DAOEXCEPTION);
 		}
 		return listVille;
 	}
@@ -101,7 +104,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			}
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
-            throw new DaoException("Impossible de communiquer avec la base de données");
+            throw new DaoException(DAOEXCEPTION);
 		}
 	}
 
@@ -114,7 +117,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			String parametres = "";
 			Object[] keys = newVille.keySet().toArray();
 			for (Object key : keys) {
-				if(!key.equals("Code_commune_INSEE")) {
+				if(!key.equals(CODEINSEE)) {
 					parametres += ", "+ key + "='" + newVille.get(key) + "'";
 				}
 			}
@@ -123,13 +126,13 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			try(PreparedStatement preparedStatement = connexion.prepareStatement("UPDATE ville_france SET"
 					+ parametres
 					+ " WHERE Code_commune_INSEE='"
-					+ newVille.get("Code_commune_INSEE")
+					+ newVille.get(CODEINSEE)
 					+ "';")){
 				preparedStatement.executeUpdate();
 			}
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
-            throw new DaoException("Impossible de communiquer avec la base de données");
+            throw new DaoException(DAOEXCEPTION);
 		}
 		
 	}
@@ -147,7 +150,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 			}
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
-            throw new DaoException("Impossible de communiquer avec la base de données");
+            throw new DaoException(DAOEXCEPTION);
 		}
 	}
 }
