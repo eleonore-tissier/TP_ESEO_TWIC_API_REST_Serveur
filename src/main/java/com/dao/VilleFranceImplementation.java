@@ -122,7 +122,7 @@ public class VilleFranceImplementation implements VilleFranceInterface {
 				}
 			}
 			parametres = parametres.replaceFirst(",", "");
-			
+
 			try(PreparedStatement preparedStatement = connexion.prepareStatement("UPDATE ville_france SET"
 					+ parametres
 					+ " WHERE Code_commune_INSEE='"
